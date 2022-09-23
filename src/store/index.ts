@@ -10,17 +10,17 @@ export default createStore({
     languageList: [
       {
         value: "pt",
-        label: "Português",
+        label: "Português(PT)",
         flag: "portugal.png",
       },
       {
         value: "en-US",
-        label: "English",
+        label: "English(US)",
         flag: "united-states.png",
       },
       {
         value: "es",
-        label: "Español",
+        label: "Español(ES)",
         flag: "spain.png",
       },
     ],
