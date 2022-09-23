@@ -1,8 +1,7 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+  <q-page padding>
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  </q-page>
 </template>
 
 <script lang="ts">
