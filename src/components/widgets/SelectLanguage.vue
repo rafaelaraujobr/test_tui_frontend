@@ -18,6 +18,14 @@
         </q-item-section>
       </q-item>
     </template>
+    <template v-slot:before-options>
+      <q-item>
+        <q-item-section>
+          <q-item-label>{{ $t("LANGUAGE") }}</q-item-label>
+        </q-item-section>
+      </q-item>
+      <q-separator inset />
+    </template>
     <template v-slot:option="scope">
       <q-item v-bind="scope.itemProps">
         <q-item-section side>
@@ -29,7 +37,7 @@
           />
         </q-item-section>
         <q-item-section>
-          <q-item-label>{{ scope.opt.label }}</q-item-label>
+          <q-item-label>{{ scope.opt.name }}</q-item-label>
         </q-item-section>
       </q-item>
     </template>
@@ -39,21 +47,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { globalMixin } from "@/mixins/globalMixin";
-interface Language {
-  label: string;
-  value: string;
-  flag: string;
-}
+import Language from "@/types/Language";
 export default defineComponent({
   name: "SelectLanguage",
   mixins: [globalMixin],
   watch: {
     async language() {
-      this.$i18n.locale = this.language.value;
-      // const { default: language } = await import(
-      //   `quasar/lang/${this.language.quasar}`
-      // );
-      // this.$q.lang.set(language);
+      this.$i18n.locale = this.language.code;
     },
   },
   computed: {

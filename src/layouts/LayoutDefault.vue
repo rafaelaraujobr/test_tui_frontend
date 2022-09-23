@@ -3,10 +3,11 @@
     <q-header class="bg-white text-dark" bordered>
       <q-toolbar class="q-header__toolbar">
         <q-toolbar-title>
-          <q-img src="../assets/logo.svg" width="56px" />
+          <q-img src="../assets/logo.svg" width="56px" class="m-py-xs" />
         </q-toolbar-title>
         <select-language />
       </q-toolbar>
+      <!-- <q-separator /> -->
       <q-toolbar class="q-header__toolbar row justify-center q-pa-lg">
         <q-input
           v-model="search"

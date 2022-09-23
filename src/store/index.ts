@@ -3,24 +3,24 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     language: {
-      value: "pt",
+      code: "pt",
       label: "Português",
       flag: "portugal.png",
     },
     languageList: [
       {
-        value: "pt",
-        label: "Português(PT)",
+        code: "pt",
+        name: "Português(PT)",
         flag: "portugal.png",
       },
       {
-        value: "en-US",
-        label: "English(US)",
+        code: "en-US",
+        name: "English(US)",
         flag: "united-states.png",
       },
       {
-        value: "es",
-        label: "Español(ES)",
+        code: "es",
+        name: "Español(ES)",
         flag: "spain.png",
       },
     ],
