@@ -7,5 +7,14 @@ module.exports = defineConfig({
       importStrategy: "kebab",
       rtlSupport: false,
     },
+    i18n: {
+      locale: "pt",
+      fallbackLocale: "pt",
+      localeDir: "locales",
+      enableLegacy: false,
+      runtimeOnly: false,
+      compositionOnly: false,
+      fullInstall: true,
+    },
   },
 });

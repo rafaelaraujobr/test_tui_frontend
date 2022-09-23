@@ -5,30 +5,14 @@
         <q-toolbar-title>
           <q-img src="../assets/logo.svg" width="56px" />
         </q-toolbar-title>
-        <div class="q-gutter-sm">
-          <q-btn size="xs" dense flat>
-            <q-avatar size="md" rounded>
-              <img src="../assets/images/flags/portugal.png" />
-            </q-avatar>
-          </q-btn>
-          <q-btn size="xs" dense flat class="light-dimmed">
-            <q-avatar size="md" rounded>
-              <img src="../assets/images/flags/spain.png" />
-            </q-avatar>
-          </q-btn>
-          <q-btn size="xs" dense flat class="light-dimmed">
-            <q-avatar size="md" rounded>
-              <img src="../assets/images/flags/united-states.png" />
-            </q-avatar>
-          </q-btn>
-        </div>
+        <select-language />
       </q-toolbar>
       <q-toolbar class="q-header__toolbar row justify-center q-pa-lg">
         <q-input
           v-model="search"
           type="text"
           style="width: 512px"
-          label="Buscar por um destino ou hotel"
+          :label="$t('SEARCH_FOR_A_DESTINATION_OR_HOTEL')"
           outlined
         >
           <template v-slot:prepend>
@@ -45,6 +29,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import SelectLanguage from "@/components/widgets/SelectLanguage.vue";
 export default defineComponent({
   name: "LayoutDefault",
   data() {
@@ -52,5 +37,6 @@ export default defineComponent({
       search: "" as string,
     };
   },
+  components: { SelectLanguage },
 });
 </script>

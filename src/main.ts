@@ -6,8 +6,10 @@ import store from "./store";
 import { Quasar } from "quasar";
 import quasarUserOptions from "./quasar-user-options";
 import { globalMixin } from "./mixins/globalMixin";
+import i18n from "./i18n";
 
 createApp(App)
+  .use(i18n)
   .use(Quasar, quasarUserOptions)
   .use(store)
   .mixin(globalMixin)

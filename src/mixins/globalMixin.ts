@@ -1,5 +1,8 @@
+import { mapActions, mapGetters } from "vuex";
 export const globalMixin = {
   methods: {
+    ...mapActions(["ActionSetLanguage"]),
+
     toCurrency(
       number: number,
       currency = "BRL",
@@ -15,6 +18,7 @@ export const globalMixin = {
     },
   },
   computed: {
+    ...mapGetters(["language", "languageList"]),
     isMobile(): boolean {
       const isMobile =
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
