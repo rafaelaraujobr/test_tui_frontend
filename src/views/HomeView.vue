@@ -15,13 +15,14 @@
   <q-separator v-if="isMobile" />
   <div class="row justify-center bg-white q-pa-md" v-if="isMobile">
     <q-btn
+      @click="ActionSetDialogFilterHotel(true)"
       color="white"
       text-color="primary"
       icon="sym_o_filter_list"
       :label="$t('FILTER')"
       no-caps
       class="q-px-xl"
-      @click="ActionSetDialogFilterHotel(true)"
+      style="z-index: 1"
     />
   </div>
   <q-separator />

@@ -1,6 +1,11 @@
 <template>
-  <q-dialog v-model="dialogFilterHotel" persistent :maximized="isMobile">
-    <q-card>
+  <q-dialog
+    v-model="dialogFilterHotel"
+    persistent
+    :maximized="isMobile"
+    position="left"
+  >
+    <q-card :style="`min-width:${$q.screen.width}px`">
       <q-toolbar class="q-py-md">
         <q-btn
           flat
@@ -9,7 +14,9 @@
           icon="sym_o_arrow_back_ios"
           @click="ActionSetDialogFilterHotel(false)"
         />
-        <q-toolbar-title class="text-h6"> Filter </q-toolbar-title>
+        <q-toolbar-title class="text-h6">
+          {{ $t("FILTER_BY") }}
+        </q-toolbar-title>
       </q-toolbar>
       <q-separator spaced />
       <q-card-section
@@ -27,7 +34,7 @@
         <div class="col-6">
           <q-btn
             unelevated
-            label="Clear"
+            :label="$t('CLEAR')"
             outline
             class="full-width q-py-md"
             color="white"
@@ -40,7 +47,7 @@
           <q-btn
             unelevated
             no-caps
-            label="Apply"
+            :label="$t('APPLY')"
             color="primary"
             type="submit"
             class="full-width q-py-md"
