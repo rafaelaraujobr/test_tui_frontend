@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header class="bg-white text-dark">
-      <q-toolbar class="q-header__toolbar">
+      <q-toolbar class="q-header__toolbar q-px-lg">
         <q-toolbar-title>
           <q-img src="../assets/logo.svg" width="56px" class="m-py-xs" />
         </q-toolbar-title>
@@ -12,6 +12,11 @@
     <q-page-container class="bg-grey-1">
       <router-view />
     </q-page-container>
+    <q-separator />
+    <div class="q-py-lg text-center bg-white">
+      <q-img src="../assets/logo.svg" width="56px" class="m-py-xs" />
+      <div class="text-caption text-grey-6 q-my-md">© TUI Group</div>
+    </div>
   </q-layout>
 </template>
 
