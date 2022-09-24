@@ -2,6 +2,7 @@
   <q-carousel
     animated
     v-model="slide"
+    swipeable
     arrows
     infinite
     height="200px"
