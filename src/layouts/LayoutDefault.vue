@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-white text-dark" bordered>
+    <q-header class="bg-white text-dark">
       <q-toolbar class="q-header__toolbar">
         <q-toolbar-title>
           <q-img src="../assets/logo.svg" width="56px" class="m-py-xs" />
@@ -8,19 +8,6 @@
         <select-language />
       </q-toolbar>
       <!-- <q-separator /> -->
-      <q-toolbar class="q-header__toolbar row justify-center q-pa-lg">
-        <q-input
-          v-model="search"
-          type="text"
-          style="width: 512px"
-          :label="$t('SEARCH_FOR_A_DESTINATION_OR_HOTEL')"
-          outlined
-        >
-          <template v-slot:prepend>
-            <q-icon name="sym_o_search" />
-          </template>
-        </q-input>
-      </q-toolbar>
     </q-header>
     <q-page-container class="bg-grey-1">
       <router-view />
@@ -33,11 +20,6 @@ import { defineComponent } from "vue";
 import SelectLanguage from "@/components/widgets/SelectLanguage.vue";
 export default defineComponent({
   name: "LayoutDefault",
-  data() {
-    return {
-      search: "" as string,
-    };
-  },
   components: { SelectLanguage },
 });
 </script>

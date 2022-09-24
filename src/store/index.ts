@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import Hotels from "./modules/hotels";
 
 export default createStore({
   state: {
@@ -39,5 +40,7 @@ export default createStore({
       commit("SET_LANGUAGE", language);
     },
   },
-  modules: {},
+  modules: {
+    Hotels,
+  },
 });
