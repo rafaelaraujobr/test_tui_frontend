@@ -17,22 +17,17 @@
           width="40%"
           animation="fade"
         />
-        <div class="q-pr-md q-gutter-md row justify-end items-end q-mt-lg">
+        <div class="row justify-end q-mt-xl">
           <q-skeleton
             type="text"
             square
-            width="20%"
-            height="51px"
-            animation="fade"
-          />
-          <q-skeleton
-            type="text"
-            square
-            width="20%"
-            height="51px"
+            width="40%"
+            height="56px"
             animation="fade"
           />
         </div>
+        <!-- <div class="q-pr-md q-gutter-md row justify-end items-end q-mt-lg">
+        </div> -->
       </q-card-section>
     </q-card-section>
   </q-card>
@@ -44,17 +39,12 @@
         <q-card-section class="q-pb-sm">
           <q-skeleton type="text" class="text-subtitle1" />
           <q-skeleton type="text" width="50%" class="text-subtitle1" />
-          <div class="q-gutter-md row justify-between items-end">
+          <div class="row justify-end q-mt-xl">
             <q-skeleton
               type="text"
+              square
               width="40%"
-              height="58px"
-              animation="fade"
-            />
-            <q-skeleton
-              type="text"
-              width="40%"
-              height="58px"
+              height="56px"
               animation="fade"
             />
           </div>

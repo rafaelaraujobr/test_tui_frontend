@@ -10,6 +10,7 @@ export default {
     modeGridHotel: false as boolean,
     dialogHotel: false as boolean,
     dialogFilterHotel: false as boolean,
+    totalHotel: 0 as number,
     hotelFilter: {
       destinationType: "country",
       destinationId: "a2e354c1-e730-40ba-bce7-3d5c98f4f929",
@@ -22,6 +23,7 @@ export default {
     loadingHotel: (state: { loadingHotel: boolean }) => state.loadingHotel,
     modeGridHotel: (state: { modeGridHotel: boolean }) => state.modeGridHotel,
     dialogHotel: (state: { dialogHotel: boolean }) => state.dialogHotel,
+    totalHotel: (state: { totalHotel: number }) => state.totalHotel,
     dialogFilterHotel: (state: { dialogFilterHotel: boolean }) =>
       state.dialogFilterHotel,
   },
@@ -47,6 +49,10 @@ export default {
       state.dialogHotel = payload;
     },
 
+    SET_TOTAL_HOTEL(state: { totalHotel: number }, payload: number) {
+      state.totalHotel = payload;
+    },
+
     SET_DIALOG_FILTER_HOTEL(
       state: { dialogFilterHotel: boolean },
       payload: boolean
@@ -69,6 +75,9 @@ export default {
     },
     ActionSetDialogHotel({ commit }: { commit: Commit }, payload: boolean) {
       commit("SET_DIALOG_HOTEL", payload);
+    },
+    ActionSetTotalHotel({ commit }: { commit: Commit }, payload: number) {
+      commit("SET_TOTAL_HOTEL", payload);
     },
     ActionSetDialogFilterHotel(
       { commit }: { commit: Commit },

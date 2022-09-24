@@ -3,5 +3,9 @@
   "LANGUAGE": "Language",
   "FILTER": "Filter",
   "COUNTRIES": "Countries",
-  "ALL": "All"
+  "ALL": "All",
+  "RESULTS": "Results",
+  "CHECK_AVAILABILITY": "Check Availability",
+  "HOTELS_IN": "Hotels in",
+  "PER_NIGHT": "per night"
 }

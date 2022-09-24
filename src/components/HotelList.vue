@@ -1,7 +1,7 @@
 <template>
-  <q-toolbar class="q-px-none q-pb-md">
+  <q-toolbar class="q-px-sm q-pb-md">
     <q-toolbar-title class="text-weight-bold">
-      Plaza Vilamoura
+      {{ $t("HOTELS_IN") }} Portugal
       <q-skeleton
         v-if="loadingHotel"
         type="text"
@@ -10,7 +10,9 @@
         height="28px"
         animation="fade"
       />
-      <div class="text-caption" v-else>25525 results</div>
+      <div class="text-caption" v-else>
+        {{ totalHotel }} {{ $t("RESULTS") }}
+      </div>
     </q-toolbar-title>
     <q-btn-group unelevated outline v-if="!isMobile">
       <q-btn
@@ -60,23 +62,27 @@
               {{ props.row.city }} {{ props.row.region }}
               {{ props.row.country }}
             </div>
-            <div class="q-pr-md q-gutter-md row justify-end items-end q-mt-lg">
-              <q-btn
-                color="primary"
-                no-caps
-                unelevated
-                class="q-px-lg"
-                label="Check Hotel"
-              />
-              <div class="text-h5 text-weight-medium">
-                {{
-                  toCurrency(
-                    props.row.totalPrice.amount,
-                    props.row.totalPrice.currency,
-                    "de-DE",
-                    0
-                  )
-                }}<q-span class="text-caption">/total</q-span>
+            <div class="q-gutter-md row justify-end items-end q-mt-lg">
+              <div class="col-12 row justify-end text-h5 text-weight-medium">
+                <div class="text-h5 text-weight-medium">
+                  {{
+                    toCurrency(
+                      props.row.totalPrice.amount,
+                      props.row.totalPrice.currency,
+                      "de-DE",
+                      0
+                    )
+                  }}<q-span class="text-caption">/{{ $t("PER_NIGHT") }}</q-span>
+                </div>
+              </div>
+              <div class="col-12 row justify-end">
+                <q-btn
+                  color="primary"
+                  no-caps
+                  unelevated
+                  class="q-px-lg"
+                  :label="$t('CHECK_AVAILABILITY')"
+                />
               </div>
             </div>
           </q-card-section>
@@ -93,27 +99,28 @@
               {{ props.row.country }}
             </div>
           </q-card-section>
-          <q-card-section
-            class="q-pt-md q-pr-md q-gutter-md row justify-between items-cente"
-          >
-            <div class="text-h5 text-weight-medium">
-              {{
-                toCurrency(
-                  props.row.totalPrice.amount,
-                  props.row.totalPrice.currency,
-                  "de-DE",
-                  0
-                )
-              }}
-              <q-span class="text-caption">/por noite</q-span>
+          <q-card-section class="q-pr-md q-gutter-md row justify-end items-end">
+            <div class="col-12 row justify-end text-h5 text-weight-medium">
+              <div class="text-h5 text-weight-medium">
+                {{
+                  toCurrency(
+                    props.row.totalPrice.amount,
+                    props.row.totalPrice.currency,
+                    "de-DE",
+                    0
+                  )
+                }}<q-span class="text-caption">/{{ $t("PER_NIGHT") }}</q-span>
+              </div>
             </div>
-            <q-btn
-              color="primary"
-              no-caps
-              unelevated
-              class="q-px-lg"
-              label="Check Hotel"
-            />
+            <div class="col-12 row justify-end" v-if="!isMobile">
+              <q-btn
+                color="primary"
+                no-caps
+                unelevated
+                class="q-px-lg"
+                :label="$t('CHECK_AVAILABILITY')"
+              />
+            </div>
           </q-card-section>
         </q-card>
       </div>

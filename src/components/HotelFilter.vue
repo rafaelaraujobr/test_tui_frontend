@@ -28,7 +28,7 @@ export default defineComponent({
       filter: {
         country: [],
       } as {
-        country: Array<string>;
+        country: Array<string> | string;
       },
       all: true as boolean,
 
@@ -65,9 +65,9 @@ export default defineComponent({
     },
   },
   created() {
-    Object.keys(this.filter.country).length === this.countries.length
-      ? (this.all = true)
-      : (this.all = false);
+    this.filter.country = this.countries
+      .filter((el) => el.label === "Portugal")
+      .map((l) => l.value);
   },
 });
 </script>

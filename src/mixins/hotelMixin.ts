@@ -10,6 +10,7 @@ export const hotelMixin = {
       "ActionSetLoadingHotel",
       "ActionSetModeGridHotel",
       "ActionSetDialogHotel",
+      "ActionSetTotalHotel",
       "ActionSetDialogFilterHotel",
     ]),
     async getHotels() {
@@ -19,7 +20,11 @@ export const hotelMixin = {
           "https://search-service.new-prod.stay.tui.com/goquo/hotel/search?adults=2&from=2022-09-24&duration=1&destinationType=country&destinationId=a2e354c1-e730-40ba-bce7-3d5c98f4f929&ip=179.108.189.40&market=tui-pt&pageSize=15&page=1&",
           { headers: { Authorization: "Bearer DlSZiSqqfVlue7WQqLEAfNBqQNkx" } }
         );
-        if (status === 200) this.ActionSetHotels(data.hotels);
+        if (status === 200) {
+          console.log(data);
+          this.ActionSetHotels(data.hotels);
+          this.ActionSetTotalHotel(data.count);
+        }
       } catch (error) {
         console.log(error);
       } finally {
@@ -33,6 +38,7 @@ export const hotelMixin = {
       "loadingHotel",
       "modeGridHotel",
       "dialogHotel",
+      "totalHotel",
       "dialogFilterHotel",
       "hotelFilter",
     ]),
