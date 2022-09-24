@@ -12,12 +12,25 @@
       </template>
     </q-input>
   </q-toolbar>
+  <q-separator v-if="isMobile" />
+  <div class="row justify-center bg-white q-pa-md" v-if="isMobile">
+    <q-btn
+      color="white"
+      text-color="primary"
+      icon="sym_o_filter_list"
+      :label="$t('FILTER')"
+      no-caps
+      class="q-px-xl"
+    />
+  </div>
   <q-separator />
   <q-page padding>
     <div class="row q-col-gutter-xl">
       <div class="col-3" v-if="!isMobile">
         <q-card flat>
-          <q-card-section> </q-card-section>
+          <q-card-section>
+            <hotel-filter />
+          </q-card-section>
         </q-card>
       </div>
       <div :class="isMobile ? 'col-12' : 'col-9'"></div>
@@ -27,14 +40,16 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { globalMixin } from "@/mixins/globalMixin";
+import { hotelMixin } from "@/mixins/hotelMixin";
+import HotelFilter from "../components/HotelFilter.vue";
 export default defineComponent({
   name: "HomeView",
-  mixins: [globalMixin],
+  mixins: [hotelMixin],
   data() {
     return {
       search: "" as string,
     };
   },
+  components: { HotelFilter },
 });
 </script>

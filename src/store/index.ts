@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import Hotels from "./modules/hotels";
+import Hotel from "./modules/Hotel";
 
 export default createStore({
   state: {
@@ -41,6 +41,6 @@ export default createStore({
     },
   },
   modules: {
-    Hotels,
+    Hotel,
   },
 });

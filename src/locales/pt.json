@@ -1,4 +1,7 @@
 {
   "SEARCH_FOR_A_DESTINATION_OR_HOTEL": "Buscar por um destino ou hôtel",
-  "LANGUAGE": "Idioma"
+  "LANGUAGE": "Idioma",
+  "FILTER": "Filtro",
+  "COUNTRIES": "Países",
+  "ALL": "Todos"
 }
