@@ -13,6 +13,13 @@
         <q-skeleton
           type="text"
           square
+          width="30%"
+          height="30px"
+          animation="fade"
+        />
+        <q-skeleton
+          type="text"
+          square
           height="12px"
           width="40%"
           animation="fade"
@@ -38,6 +45,13 @@
         <q-skeleton height="233px" square />
         <q-card-section class="q-pb-sm">
           <q-skeleton type="text" class="text-subtitle1" />
+          <q-skeleton
+            type="text"
+            square
+            width="30%"
+            height="30px"
+            animation="fade"
+          />
           <q-skeleton type="text" width="50%" class="text-subtitle1" />
           <div class="row justify-end q-mt-xl">
             <q-skeleton

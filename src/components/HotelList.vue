@@ -6,7 +6,7 @@
         v-if="loadingHotel"
         type="text"
         square
-        width="15%"
+        width="25%"
         height="28px"
         animation="fade"
       />
@@ -57,6 +57,15 @@
             <div class="text-h5 text-weight-medium">
               {{ props.row.hotelName }}
             </div>
+            <q-rating
+              v-model="props.row.starRating"
+              color="warning"
+              size="1.2rem"
+              flat
+              icon="star_border"
+              icon-selected="star"
+              readonly
+            />
             <div class="text-caption">
               <q-icon name="sym_o_pin_drop" size="0.9rem" />
               {{ props.row.city }} {{ props.row.region }}
@@ -93,6 +102,15 @@
           <hotel-carousel :images="props.row.images" />
           <q-card-section>
             <div class="text-h6">{{ props.row.hotelName }}</div>
+            <q-rating
+              v-model="props.row.starRating"
+              color="warning"
+              size="1.2rem"
+              flat
+              icon="star_border"
+              icon-selected="star"
+              readonly
+            />
             <div class="text-caption">
               <q-icon name="sym_o_pin_drop" size="0.9rem" />
               {{ props.row.city }} {{ props.row.region }}
@@ -100,7 +118,7 @@
             </div>
           </q-card-section>
           <q-card-section class="q-pr-md q-gutter-md row justify-end items-end">
-            <div class="col-12 row justify-end text-h5 text-weight-medium">
+            <div class="col-12 row justify-end text-weight-medium">
               <div class="text-h5 text-weight-medium">
                 {{
                   toCurrency(
