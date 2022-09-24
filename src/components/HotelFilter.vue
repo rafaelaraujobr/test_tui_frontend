@@ -69,9 +69,6 @@ export default defineComponent({
       ? (this.all = true)
       : (this.all = false);
   },
-  mounted() {
-    this.getHotels();
-  },
 });
 </script>
 

@@ -21,6 +21,7 @@
       :label="$t('FILTER')"
       no-caps
       class="q-px-xl"
+      @click="ActionSetDialogFilterHotel(true)"
     />
   </div>
   <q-separator />
@@ -33,8 +34,11 @@
           </q-card-section>
         </q-card>
       </div>
-      <div :class="isMobile ? 'col-12' : 'col-9'"></div>
+      <div :class="isMobile ? 'col-12' : 'col-9'">
+        <hotel-list />
+      </div>
     </div>
+    <hotel-dialog-filter />
   </q-page>
 </template>
 
@@ -42,6 +46,8 @@
 import { defineComponent } from "vue";
 import { hotelMixin } from "@/mixins/hotelMixin";
 import HotelFilter from "../components/HotelFilter.vue";
+import HotelList from "@/components/HotelList.vue";
+import HotelDialogFilter from "@/components/HotelDialogFilter.vue";
 export default defineComponent({
   name: "HomeView",
   mixins: [hotelMixin],
@@ -50,6 +56,6 @@ export default defineComponent({
       search: "" as string,
     };
   },
-  components: { HotelFilter },
+  components: { HotelFilter, HotelDialogFilter, HotelList },
 });
 </script>
