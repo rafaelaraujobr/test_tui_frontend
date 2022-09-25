@@ -38,7 +38,7 @@
         </template>
       </q-carousel>
       <q-card-section>
-        <div class="text-h6">{{ hotel.name }}</div>
+        <div class="text-h5">{{ hotel.name }}</div>
         <q-rating
           v-model="hotel.star_rating"
           color="warning"
