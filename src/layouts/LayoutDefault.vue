@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-white text-dark" reveal>
+    <q-header class="bg-white text-dark" reveal bordered>
       <q-toolbar class="q-header__toolbar q-px-lg">
         <q-toolbar-title>
           <q-img src="../assets/logo.svg" width="56px" class="m-py-xs" />

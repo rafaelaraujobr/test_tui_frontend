@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <q-breadcrumbs>
+    <q-breadcrumbs class="q-mt-sm">
       <q-breadcrumbs-el label="Hotels" to="/hotels" />
       <q-breadcrumbs-el :label="hotel?.name" />
       <template v-slot:separator>
