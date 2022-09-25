@@ -1,7 +1,7 @@
 <template>
   <q-toolbar class="q-px-sm q-pb-md">
     <q-toolbar-title class="text-weight-bold">
-      {{ $t("HOTELS_IN") }} Portugal
+      {{ $t("HOTELS_IN") }} {{ hotelFilter.country }}
       <q-skeleton
         v-if="loadingHotel"
         type="text"
@@ -11,7 +11,7 @@
         animation="fade"
       />
       <div class="text-caption" v-else>
-        {{ totalHotel }} {{ $t("RESULTS") }}
+        {{ paginationHotel.total }} {{ $t("RESULTS") }}
       </div>
     </q-toolbar-title>
     <q-btn-group unelevated outline v-if="!isMobile">
@@ -31,7 +31,9 @@
   </q-toolbar>
   <q-table
     :rows="hotels"
-    row-key="hotelId"
+    :rows-per-page-options="[0]"
+    :pagination:sync="paginationHotel"
+    row-key="id"
     flat
     grid
     hide-pagination
@@ -44,7 +46,7 @@
     </template>
     <template v-slot:loading>
       <hotel-skeleton
-        v-for="n in 5"
+        v-for="n in paginationHotel.rowsPerPage"
         :key="n"
         :type="modeGridHotel ? 'grid' : 'row'"
       />
@@ -55,10 +57,10 @@
           <hotel-carousel :images="props.row.images" />
           <q-card-section class="full-width">
             <div class="text-h5 text-weight-medium">
-              {{ props.row.hotelName }}
+              {{ props.row.name }}
             </div>
             <q-rating
-              v-model="props.row.starRating"
+              v-model="props.row.star_rating"
               color="warning"
               size="1.2rem"
               flat
@@ -68,7 +70,7 @@
             />
             <div class="text-caption">
               <q-icon name="sym_o_pin_drop" size="0.9rem" />
-              {{ props.row.city }} {{ props.row.region }}
+              {{ props.row.city }}, {{ props.row.region }},
               {{ props.row.country }}
             </div>
             <div class="q-gutter-md row justify-end items-end q-mt-lg">
@@ -76,8 +78,8 @@
                 <div class="text-h5 text-weight-medium">
                   {{
                     toCurrency(
-                      props.row.totalPrice.amount,
-                      props.row.totalPrice.currency,
+                      props.row.price_per_person,
+                      props.row.currency,
                       "de-DE",
                       0
                     )
@@ -101,9 +103,9 @@
         <q-card flat>
           <hotel-carousel :images="props.row.images" />
           <q-card-section>
-            <div class="text-h6">{{ props.row.hotelName }}</div>
+            <div class="text-h6">{{ props.row.name }}</div>
             <q-rating
-              v-model="props.row.starRating"
+              v-model="props.row.star_rating"
               color="warning"
               size="1.2rem"
               flat
@@ -122,8 +124,8 @@
               <div class="text-h5 text-weight-medium">
                 {{
                   toCurrency(
-                    props.row.totalPrice.amount,
-                    props.row.totalPrice.currency,
+                    props.row.price_per_person,
+                    props.row.currency,
                     "de-DE",
                     0
                   )
@@ -143,6 +145,9 @@
         </q-card>
       </div>
     </template>
+    <template v-slot:bottom>
+      <hotel-pagination />
+    </template>
   </q-table>
 </template>
 
@@ -151,23 +156,12 @@ import { defineComponent } from "vue";
 import { hotelMixin } from "@/mixins/hotelMixin";
 import HotelSkeleton from "./HotelSkeleton.vue";
 import HotelCarousel from "./HotelCarousel.vue";
+import HotelPagination from "./HotelPagination.vue";
 
 export default defineComponent({
   name: "HotelList",
   mixins: [hotelMixin],
-  components: { HotelSkeleton, HotelCarousel },
-  data() {
-    return {
-      // columns: [
-      //   {
-      //     name: "id",
-      //     label: "Id",
-      //     field: "id",
-      //     align: "left",
-      //   },
-      // ] as QTableProps["columns"],
-    };
-  },
+  components: { HotelSkeleton, HotelCarousel, HotelPagination },
   watch: {
     isMobile() {
       this.ActionSetModeGridHotel(this.isMobile);

@@ -5,7 +5,7 @@
     swipeable
     arrows
     infinite
-    height="200px"
+    height="230px"
     class="full-width"
   >
     <q-carousel-slide

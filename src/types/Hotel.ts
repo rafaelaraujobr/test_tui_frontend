@@ -1,15 +1,14 @@
-import ImageHotel from "./ImageHotel";
-
 interface Hotel {
-  hotelId: string;
-  hotelName: string;
-  totalPrice: { amount: number; currency: string };
-  images: Array<ImageHotel>;
-  region: string;
-  room: string;
-  starRating: number;
-  geo: { latitude: number; longitude: number };
+  id: string;
+  name: string;
   country: string;
   city: string;
+  region: string;
+  star_rating: number;
+  images: Array<string>;
+  price_per_person: number;
+  currency: string;
+  adults: number;
+  created_at: string;
 }
 export default Hotel;

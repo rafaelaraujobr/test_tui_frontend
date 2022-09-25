@@ -33,9 +33,9 @@ export default defineComponent({
       all: true as boolean,
 
       countries: [
-        { label: "Portugal", value: "a2e354c1-e730-40ba-bce7-3d5c98f4f929" },
-        { label: "Spain", value: "4c87c840-c998-4f7e-b650-44729ff51898" },
-        { label: "Italy", value: " c9e2e019-40ba-43cb-b365-c55d55977f56" },
+        { label: "Portugal", value: "Portugal" },
+        { label: "Spain", value: "Spain" },
+        { label: "Italy", value: "Italy" },
       ] as Array<{
         label: string;
         value: string;
@@ -57,9 +57,14 @@ export default defineComponent({
           : (this.all = false);
 
         this.ActionSetHotelFilter({
-          destinationId:
-            Object.values(val).length === 1 ? val[0] : Object.values(val),
+          country: Object.values(val).join(),
         });
+      },
+      deep: true,
+    },
+    filter: {
+      handler() {
+        this.getHotels();
       },
       deep: true,
     },
