@@ -30,7 +30,10 @@ export const hotelMixin = {
       const { page, rowsPerPage, descending, orderBy } =
         store.getters["Hotel/paginationHotel"];
 
-      const filter = { ...store.getters["Hotel/hotelFilter"] };
+      const filter = {
+        ...store.getters["Hotel/hotelFilter"],
+        search: store.getters["Hotel/searchHotel"],
+      };
       try {
         let query = "?";
         query += page ? `page=${page}` : "";
@@ -64,6 +67,7 @@ export const hotelMixin = {
     ...mapGetters("Hotel", [
       "hotels",
       "loadingHotel",
+      "searchHotel",
       "modeGridHotel",
       "dialogHotel",
       "paginationHotel",

@@ -2,10 +2,16 @@
   <q-toolbar class="row justify-center q-pa-lg bg-white">
     <q-input
       v-model="search"
-      type="text"
+      type="search"
       style="width: 512px"
       :label="$t('SEARCH_FOR_A_DESTINATION_OR_HOTEL')"
       outlined
+      clearable
+      debounce="1000"
+      clear-icon="close"
+      @update:model-value="getHotels()"
+      @keyup.enter="getHotels()"
+      @clear="getHotels()"
     >
       <template v-slot:prepend>
         <q-icon name="sym_o_search" />
@@ -52,11 +58,16 @@ import HotelDialogFilter from "@/components/HotelDialogFilter.vue";
 export default defineComponent({
   name: "HomeView",
   mixins: [hotelMixin],
-  data() {
-    return {
-      search: "" as string,
-    };
-  },
   components: { HotelFilter, HotelDialogFilter, HotelList },
+  computed: {
+    search: {
+      get() {
+        return this.searchHotel;
+      },
+      set(value: string) {
+        this.ActionSetSearchHotel(value);
+      },
+    },
+  },
 });
 </script>

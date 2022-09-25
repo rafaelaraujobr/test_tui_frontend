@@ -1,7 +1,7 @@
 <template>
   <q-toolbar class="bg-transparent">
     <span class="q-mr-md text-body2" v-if="!isMobile">
-      Total de registros: {{ paginationHotel.total }}
+      {{ paginationHotel.total }} {{ $t("RESULTS") }}
     </span>
     <span class="q-mr-md text-body2" v-else>
       {{ paginationHotel.total }}

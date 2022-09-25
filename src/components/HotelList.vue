@@ -1,7 +1,12 @@
 <template>
   <q-toolbar class="q-px-sm q-pb-md">
     <q-toolbar-title class="text-weight-bold">
-      {{ $t("HOTELS_IN") }} {{ hotelFilter.country }}
+      {{ $t("HOTELS_IN") }}
+      {{
+        !hotelFilter?.country || hotelFilter?.country.split(",").length === 3
+          ? $t("ALL") + " " + $t("COUNTRIES")
+          : hotelFilter?.country
+      }}
       <q-skeleton
         v-if="loadingHotel"
         type="text"
