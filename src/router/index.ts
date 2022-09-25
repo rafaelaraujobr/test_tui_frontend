@@ -6,12 +6,19 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../layouts/LayoutDefault.vue"),
     children: [
-      { path: "", redirect: "home" },
+      { path: "", redirect: "hotels" },
       {
-        path: "home",
-        name: "home",
+        path: "hotels",
+        name: "hotels",
         component: () =>
-          import(/* webpackChunkName: "about" */ "../views/HomeView.vue"),
+          import(/* webpackChunkName: "about" */ "../pages/HotelsPage.vue"),
+      },
+      {
+        path: "hotel/:id",
+        name: "hotel",
+        props: true,
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../pages/HotelPage.vue"),
       },
     ],
   },
@@ -19,7 +26,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/about",
     name: "about",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ "../pages/AboutPage.vue"),
   },
 ];
 

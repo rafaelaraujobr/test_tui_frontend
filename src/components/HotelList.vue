@@ -58,6 +58,7 @@
     </template>
     <template v-slot:item="props">
       <q-card
+        bordered
         class="q-my-sm full-width grid-style__transition"
         flat
         v-if="!modeGridHotel"
@@ -102,6 +103,7 @@
                   unelevated
                   class="q-px-lg"
                   :label="$t('CHECK_AVAILABILITY')"
+                  :to="`/hotel/${props.row.id}`"
                 />
               </div>
             </div>
@@ -109,7 +111,7 @@
         </q-card-section>
       </q-card>
       <div class="q-pa-sm col-xs-12 col-sm-6 col-md-6" v-else>
-        <q-card flat class="grid-style__transition">
+        <q-card flat class="grid-style__transition" bordered>
           <hotel-carousel :images="props.row.images" />
           <q-card-section>
             <div class="text-h6 text-weight-medium">
@@ -178,6 +180,13 @@ export default defineComponent({
       this.ActionSetModeGridHotel(this.isMobile);
     },
   },
+  computed: {
+    cardContainerClass(): string | null {
+      return this.$q.screen.gt.xs
+        ? "grid-masonry grid-masonry--" + (this.$q.screen.gt.sm ? "3" : "2")
+        : null;
+    },
+  },
   created() {
     this.ActionSetModeGridHotel(this.isMobile);
     this.getHotels();
@@ -185,13 +194,36 @@ export default defineComponent({
 });
 </script>
 
-<style>
-.grid-style__transition {
-  transition: transform 0.28s, background-color 0.28s;
-}
+<style lang="sass">
+.grid-masonry
+  flex-direction: column
+  height: 700px
 
-.grid-style__transition:hover {
-  transform: scale(1.04);
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
+  &--2
+    > div
+      &:nth-child(2n + 1)
+        order: 1
+      &:nth-child(2n)
+        order: 2
+
+    &:before
+      content: ''
+      flex: 1 0 100% !important
+      width: 0 !important
+      order: 1
+  &--3
+    > div
+      &:nth-child(3n + 1)
+        order: 1
+      &:nth-child(3n + 2)
+        order: 2
+      &:nth-child(3n)
+        order: 3
+
+    &:before,
+    &:after
+      content: ''
+      flex: 1 0 100% !important
+      width: 0 !important
+      order: 2
 </style>
