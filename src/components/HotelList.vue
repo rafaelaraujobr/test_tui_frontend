@@ -57,7 +57,11 @@
       />
     </template>
     <template v-slot:item="props">
-      <q-card class="q-my-sm full-width" flat v-if="!modeGridHotel">
+      <q-card
+        class="q-my-sm full-width grid-style__transition"
+        flat
+        v-if="!modeGridHotel"
+      >
         <q-card-section horizontal>
           <hotel-carousel :images="props.row.images" />
           <q-card-section class="full-width">
@@ -104,7 +108,10 @@
           </q-card-section>
         </q-card-section>
       </q-card>
-      <div class="q-pa-sm col-xs-12 col-sm-6 col-md-6" v-else>
+      <div
+        class="q-pa-sm col-xs-12 col-sm-6 col-md-6 grid-style__transition"
+        v-else
+      >
         <q-card flat>
           <hotel-carousel :images="props.row.images" />
           <q-card-section>
@@ -179,4 +186,13 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style>
+.grid-style__transition {
+  transition: transform 0.28s, background-color 0.28s;
+}
+
+.grid-style__transition:hover {
+  transform: scale(1.04);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+</style>
