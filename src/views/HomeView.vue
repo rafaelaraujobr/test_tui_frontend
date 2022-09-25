@@ -46,6 +46,13 @@
       </div>
     </div>
     <hotel-dialog-filter />
+    <q-page-scroller
+      position="bottom-right"
+      :scroll-offset="150"
+      :offset="[18, 18]"
+    >
+      <q-btn fab icon="keyboard_arrow_up" color="primary" />
+    </q-page-scroller>
   </q-page>
 </template>
 
@@ -59,6 +66,11 @@ export default defineComponent({
   name: "HomeView",
   mixins: [hotelMixin],
   components: { HotelFilter, HotelDialogFilter, HotelList },
+  methods: {
+    teste() {
+      console.log("teste");
+    },
+  },
   computed: {
     search: {
       get() {
