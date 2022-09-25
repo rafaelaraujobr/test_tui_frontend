@@ -25,6 +25,10 @@ export const hotelMixin = {
           .join("&")
       );
     },
+    onFilter() {
+      this.getHotels();
+      this.ActionSetDialogFilterHotel(false);
+    },
     async getHotels() {
       this.ActionSetLoadingHotel(true);
       const { page, rowsPerPage, descending, orderBy } =

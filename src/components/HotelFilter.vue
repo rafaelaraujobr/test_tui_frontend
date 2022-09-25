@@ -13,6 +13,31 @@
         size="lg"
       />
     </q-card-section>
+    <q-separator spaced />
+    <q-card-section class="row q-col-gutter-sm" v-if="!isMobile">
+      <div class="col-6">
+        <q-btn
+          unelevated
+          :label="$t('CLEAR')"
+          outline
+          class="full-width q-py-md"
+          color="white"
+          text-color="primary"
+          no-caps
+          @click="ActionSetDialogFilterHotel(false)"
+        />
+      </div>
+      <div class="col-6">
+        <q-btn
+          unelevated
+          no-caps
+          :label="$t('APPLY')"
+          color="primary"
+          @click="onFilter()"
+          class="full-width q-py-md"
+        />
+      </div>
+    </q-card-section>
   </q-card>
 </template>
 
@@ -30,7 +55,7 @@ export default defineComponent({
       } as {
         country: Array<string> | string;
       },
-      all: true as boolean,
+      all: false as boolean,
 
       countries: [
         { label: "Portugal", value: "Portugal" },
@@ -62,17 +87,12 @@ export default defineComponent({
       },
       deep: true,
     },
-    filter: {
-      handler() {
-        this.getHotels();
-      },
-      deep: true,
-    },
-  },
-  created() {
-    this.filter.country = this.countries
-      .filter((el) => el.label === "Portugal")
-      .map((l) => l.value);
+    // filter: {
+    //   handler() {
+    //     this.getHotels();
+    //   },
+    //   deep: true,
+    // },
   },
 });
 </script>

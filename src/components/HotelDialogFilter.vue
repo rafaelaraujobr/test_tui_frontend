@@ -49,7 +49,7 @@
             no-caps
             :label="$t('APPLY')"
             color="primary"
-            type="submit"
+            @click="onFilter()"
             class="full-width q-py-md"
           />
         </div>
