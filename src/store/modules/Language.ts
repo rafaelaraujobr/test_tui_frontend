@@ -25,6 +25,11 @@ export default {
         name: "Español(ES)",
         flag: "spain.png",
       },
+      {
+        code: "it",
+        name: "Italiano",
+        flag: "italy.png",
+      },
     ] as Array<Language>,
   },
   getters: {

@@ -20,7 +20,7 @@
           unelevated
           :label="$t('CLEAR')"
           outline
-          class="full-width q-py-md"
+          class="full-width"
           color="white"
           text-color="primary"
           no-caps
@@ -34,7 +34,7 @@
           :label="$t('APPLY')"
           color="primary"
           @click="onFilter()"
-          class="full-width q-py-md"
+          class="full-width"
         />
       </div>
     </q-card-section>
