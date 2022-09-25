@@ -14,7 +14,7 @@
       />
     </q-card-section>
     <q-separator spaced />
-    <q-card-section class="row q-col-gutter-sm" v-if="!isMobile">
+    <q-card-section class="row q-col-gutter-sm q-pa-xs" v-if="!isMobile">
       <div class="col-6">
         <q-btn
           unelevated

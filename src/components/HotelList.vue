@@ -65,7 +65,7 @@
         <q-card-section horizontal>
           <hotel-carousel :images="props.row.images" />
           <q-card-section class="full-width">
-            <div class="text-h5 text-weight-medium">
+            <div class="text-h6 text-weight-medium">
               {{ props.row.name }}
             </div>
             <q-rating
@@ -108,14 +108,13 @@
           </q-card-section>
         </q-card-section>
       </q-card>
-      <div
-        class="q-pa-sm col-xs-12 col-sm-6 col-md-6 grid-style__transition"
-        v-else
-      >
-        <q-card flat>
+      <div class="q-pa-sm col-xs-12 col-sm-6 col-md-6" v-else>
+        <q-card flat class="grid-style__transition">
           <hotel-carousel :images="props.row.images" />
           <q-card-section>
-            <div class="text-h6">{{ props.row.name }}</div>
+            <div class="text-h6 text-weight-medium">
+              {{ props.row.name }}
+            </div>
             <q-rating
               v-model="props.row.star_rating"
               color="warning"

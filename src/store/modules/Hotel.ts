@@ -16,7 +16,7 @@ export default {
       pages: 1,
       orderBy: "created_at",
       page: 1,
-      rowsPerPage: 10,
+      rowsPerPage: 6,
     } as Pagination,
     loadingHotel: false as boolean,
     modeGridHotel: false as boolean,

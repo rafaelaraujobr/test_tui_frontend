@@ -9,7 +9,7 @@
     <q-space />
     <q-select
       v-model="currentRowsPerPage"
-      :options="[5, 10, 20, 50, 80, 100]"
+      :options="[6, 10, 20, 50, 80, 100]"
       style="min-width: 40px"
       borderless
       dense
