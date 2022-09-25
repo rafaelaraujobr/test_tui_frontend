@@ -111,7 +111,12 @@
         </q-card-section>
       </q-card>
       <div class="q-pa-sm col-xs-12 col-sm-6 col-md-6" v-else>
-        <q-card flat class="grid-style__transition" bordered>
+        <q-card
+          flat
+          class="grid-style__transition"
+          bordered
+          :to="`/hotel/${props.row.id}`"
+        >
           <hotel-carousel :images="props.row.images" />
           <q-card-section>
             <div class="text-h6 text-weight-medium">
