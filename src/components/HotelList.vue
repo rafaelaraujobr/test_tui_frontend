@@ -111,12 +111,7 @@
         </q-card-section>
       </q-card>
       <div class="q-pa-sm col-xs-12 col-sm-6 col-md-6" v-else>
-        <q-card
-          flat
-          class="grid-style__transition"
-          bordered
-          :to="`/hotel/${props.row.id}`"
-        >
+        <q-card flat class="grid-style__transition" bordered>
           <hotel-carousel :images="props.row.images" />
           <q-card-section>
             <div class="text-h6 text-weight-medium">
@@ -150,13 +145,14 @@
                 }}<q-span class="text-caption">/{{ $t("PER_NIGHT") }}</q-span>
               </div>
             </div>
-            <div class="col-12 row justify-end" v-if="!isMobile">
+            <div class="col-12 row justify-end">
               <q-btn
                 color="primary"
                 no-caps
                 unelevated
                 class="q-px-lg"
                 :label="$t('CHECK_AVAILABILITY')"
+                :to="`/hotel/${props.row.id}`"
               />
             </div>
           </q-card-section>
