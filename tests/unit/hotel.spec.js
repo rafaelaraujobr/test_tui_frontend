@@ -38,8 +38,8 @@ const hotel = {
   created_at: "2022-09-25T04:44:18.123Z",
 };
 
-describe("HotelPage.vue", () => {
-  it("App component's exist in HotelsPage", async () => {
+describe("HotelPage", () => {
+  it("Testing hotel parameters", async () => {
     const wrapper = mount(HotelPage, {
       global: {
         plugins: [i18n],

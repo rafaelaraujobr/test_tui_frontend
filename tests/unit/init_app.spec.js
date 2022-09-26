@@ -3,7 +3,7 @@ import App from "@/App.vue";
 import i18n from "./testUtils";
 
 describe("App.vue", () => {
-  it("App component's exist in HotelsPage", async () => {
+  it("should render the component", async () => {
     const wrapper = mount(App, {
       global: {
         plugins: [i18n],
