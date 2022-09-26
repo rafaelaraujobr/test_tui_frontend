@@ -1,4 +1,14 @@
-# test_tui_frontend
+<h1 align="center">
+📄<br>Tui test frontend
+</h1>
+
+<p align="center">🚀 Teste de verificação de competência  técnica </p>
+
+<h1 align="center">
+    <a href="https://tuistay.vercel.app/hotels">🔗 Acessar</a>
+</h1>
+<img src="screenshots.png" alt="screenshots" width="70%">
+<img src="screenshots_mobile.png" alt="screenshots" width="20%">
 
 ## Project setup
 ```
@@ -9,26 +19,34 @@ yarn install
 ```
 yarn serve
 ```
-
 ### Compiles and minifies for production
 ```
 yarn build
 ```
-
 ### Run your unit tests
 ```
 yarn test:unit
 ```
-
 ### Run your end-to-end tests
 ```
 yarn test:e2e
 ```
-
 ### Lints and fixes files
 ```
 yarn lint
 ```
-
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Vue js](https://expo.io/)
+- [Node.js](https://nodejs.org/en/)
+- [Vuex](https://vuex.vuejs.org/)
+- [Vue Router](https://router.vuejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Quasar Framework](https://quasar.dev/)
+- [Vue I18n](https://kazupon.github.io/vue-i18n/)
+- [Vue test utils](https://v1.test-utils.vuejs.org/)

@@ -25,7 +25,8 @@
     "tests/**/*.ts",
     "tests/**/*.tsx",
     "tests/unit/init_app.spec.js",
-    "tests/unit/testUtils.js"
+    "tests/unit/testUtils.js",
+    "src/pages/HotelPage.spec.js"
   ],
   "exclude": ["node_modules", "src/i18n.ts"]
 }
