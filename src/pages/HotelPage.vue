@@ -38,7 +38,7 @@
         </template>
       </q-carousel>
       <q-card-section>
-        <div class="text-h5">{{ hotel.name }}</div>
+        <div class="text-h5" data-test="name">{{ hotel.name }}</div>
         <q-rating
           v-model="hotel.star_rating"
           color="warning"
@@ -48,10 +48,14 @@
           icon-selected="star"
           readonly
         />
-        <q-badge class="q-ml-sm" color="dark" v-show="hotel.star_rating >= 5"
+        <q-badge
+          class="q-ml-sm"
+          color="dark"
+          v-if="hotel.star_rating >= 5"
+          data-test="start-rating-is-superior"
           >Superior</q-badge
         >
-        <div class="text-subtitle2 q-mt-sm">
+        <div class="text-subtitle2 q-mt-sm" data-test="address">
           <q-icon name="sym_o_pin_drop" size="0.9rem" />
           {{ hotel.city }}, {{ hotel.region }},
           {{ hotel.country }}
@@ -61,7 +65,10 @@
         <q-card-section
           class="col-12 row justify-end text-h4 text-weight-medium"
         >
-          <div class="text-h4 text-weight-medium text-primary">
+          <div
+            class="text-h4 text-weight-medium text-primary"
+            data-test="price"
+          >
             {{ toCurrency(hotel.price_per_person, hotel.currency, "de-DE", 0)
             }}<q-span class="text-caption">/{{ $t("PER_NIGHT") }}</q-span>
           </div>
