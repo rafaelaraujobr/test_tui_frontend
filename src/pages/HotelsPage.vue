@@ -66,14 +66,9 @@ export default defineComponent({
   name: "HomeView",
   mixins: [hotelMixin],
   components: { HotelFilter, HotelDialogFilter, HotelList },
-  methods: {
-    teste() {
-      console.log("teste");
-    },
-  },
   computed: {
     search: {
-      get() {
+      get(): string {
         return this.searchHotel;
       },
       set(value: string) {
