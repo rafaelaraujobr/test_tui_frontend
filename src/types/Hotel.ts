@@ -1,3 +1,5 @@
+import ImageHotel from "./ImageHotel";
+
 interface Hotel {
   id: string;
   name: string;
@@ -5,7 +7,7 @@ interface Hotel {
   city: string;
   region: string;
   star_rating: number;
-  images: Array<{ url: string }>;
+  images: Array<ImageHotel>;
   price_per_person: number;
   currency: string;
   adults: number;

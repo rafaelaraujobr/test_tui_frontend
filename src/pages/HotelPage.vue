@@ -48,6 +48,9 @@
           icon-selected="star"
           readonly
         />
+        <q-badge class="q-ml-sm" color="dark" v-show="hotel.star_rating >= 5"
+          >Superior</q-badge
+        >
         <div class="text-subtitle2 q-mt-sm">
           <q-icon name="sym_o_pin_drop" size="0.9rem" />
           {{ hotel.city }}, {{ hotel.region }},
@@ -116,10 +119,10 @@ export default defineComponent({
     };
   },
   methods: {
-    async getHotel() {
+    async getHotel(id: string) {
       try {
         const { status, data } = await axios.get(
-          "https://app-tui-test.herokuapp.com/api/v1/hotels/" + this.id
+          "https://app-tui-test.herokuapp.com/api/v1/hotels/" + id
         );
         if (status === 200) this.hotel = data;
       } catch (error) {
@@ -128,7 +131,7 @@ export default defineComponent({
     },
   },
   created() {
-    this.getHotel();
+    this.getHotel(this.id);
   },
 });
 </script>

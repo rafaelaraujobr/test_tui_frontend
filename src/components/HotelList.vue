@@ -78,6 +78,12 @@
               icon-selected="star"
               readonly
             />
+            <q-badge
+              class="q-ml-sm"
+              color="dark"
+              v-show="props.row.star_rating >= 5"
+              >Superior</q-badge
+            >
             <div class="text-caption">
               <q-icon name="sym_o_pin_drop" size="0.9rem" />
               {{ props.row.city }}, {{ props.row.region }},
@@ -125,7 +131,15 @@
               icon="star_border"
               icon-selected="star"
               readonly
-            />
+            >
+            </q-rating>
+            <q-badge
+              class="q-ml-sm"
+              color="dark"
+              v-show="props.row.star_rating >= 5"
+              >Superior</q-badge
+            >
+
             <div class="text-caption">
               <q-icon name="sym_o_pin_drop" size="0.9rem" />
               {{ props.row.city }} {{ props.row.region }}
