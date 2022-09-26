@@ -24,7 +24,7 @@
           color="white"
           text-color="primary"
           no-caps
-          @click="ActionSetDialogFilterHotel(false)"
+          @click="clearFilter()"
         />
       </div>
       <div class="col-6">
@@ -89,10 +89,23 @@ export default defineComponent({
     },
     // filter: {
     //   handler() {
-    //     this.getHotels();
+    //     console.log(this.hotelFilter);
+    //     if (this.hotelFilter.country) this.filter.country = [];
     //   },
     //   deep: true,
     // },
+  },
+  methods: {
+    clearFilter() {
+      if (this.dialogFilterHotel) this.ActionSetDialogFilterHotel(false);
+      this.ActionSetHotelFilter({ country: "" });
+      this.filter.country = [];
+      this.getHotels();
+    },
+  },
+  created() {
+    if (this.hotelFilter.country)
+      this.filter.country = this.hotelFilter.country.split(",");
   },
 });
 </script>

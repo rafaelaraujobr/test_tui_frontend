@@ -27,7 +27,7 @@
         "
         class="scroll"
       >
-        <hotel-filter />
+        <hotel-filter ref="filter" />
       </q-card-section>
       <q-separator spaced />
       <q-card-section class="row q-col-gutter-sm">
@@ -40,7 +40,7 @@
             color="white"
             text-color="primary"
             no-caps
-            @click="ActionSetDialogFilterHotel(false)"
+            @click="onFilterMobile()"
           />
         </div>
         <div class="col-6">
@@ -67,6 +67,18 @@ export default defineComponent({
   name: "HotelDialogFilter",
   mixins: [hotelMixin],
   components: { HotelFilter },
+  methods: {
+    onFilterMobile() {
+      this.filter.clearFilter();
+    },
+  },
+  computed: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    filter(): any {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return this.$refs.filter as any;
+    },
+  },
 });
 </script>
 
