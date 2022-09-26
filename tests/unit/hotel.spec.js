@@ -48,14 +48,18 @@ describe("HotelPage", () => {
         id: hotel.id,
       },
     });
-    await wrapper.setData({ hotel: hotel });
-    expect(wrapper.get('[data-test="name"]').text()).toMatch(hotel.nome);
-    // expect(wrapper.get('[data-test="start-rating-is-superior"]')).toBeNull();
-    expect(wrapper.get('[data-test="address"]').text()).toMatch(hotel.country);
-    expect(wrapper.get('[data-test="address"]').text()).toMatch(hotel.city);
-    expect(wrapper.get('[data-test="address"]').text()).toMatch(hotel.region);
-    expect(wrapper.get('[data-test="price"]').text()).toMatch(
-      hotel.price_per_person
+    await wrapper.setData({ hotel });
+    expect(wrapper.get('[data-test="name"]').text()).toEqual(hotel.name);
+    expect(wrapper.get('[data-test="address"]').text()).toContain(
+      hotel.country
+    );
+    expect(wrapper.get('[data-test="address"]').text()).toContain(hotel.city);
+    expect(wrapper.get('[data-test="address"]').text()).toContain(hotel.region);
+    expect(wrapper.get('[data-test="price"]').text()).toContain(
+      new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR",
+      }).format(hotel.price_per_person)
     );
   });
 });
