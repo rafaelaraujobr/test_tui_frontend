@@ -9,32 +9,38 @@
 
 ## Project setup
 
-```yarn install
+```
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 
-```yarn serve
+```
+yarn serve
 ```
 
 ### Compiles and minifies for production
 
-```yarn build
+```
+yarn build
 ```
 
 ### Run your unit tests
 
-```yarn test:unit
+```
+yarn test:unit
 ```
 
 ### Run your end-to-end tests
 
-```yarn test:e2e
+```
+yarn test:e2e
 ```
 
 ### Lints and fixes files
 
-```yarn lint
+```
+yarn lint
 ```
 
 ### Customize configuration
