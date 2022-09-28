@@ -4,8 +4,8 @@
 ### 🚀Teste de verificação de competência técnica
 
 <h1 align="center"> <a href="https://tuistay.vercel.app/hotels">🔗 Acessar</a></h1>
-<img src="screenshots.png" alt="screenshots" width="70%">
-<img src="screenshots_mobile.png" alt="screenshots" width="20%">
+<img src="screenshots.png" alt="screenshots" width="100%">
+<p align="center"><img src="screenshots_mobile.png" alt="screenshots" width="20%"></p>
 
 ## Project setup
 
